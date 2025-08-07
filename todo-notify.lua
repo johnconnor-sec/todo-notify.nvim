@@ -1,25 +1,24 @@
--- ~/.config/nvim/lua/plugins/todo_notify.lua
--- ~/.config/nvim/lua/plugins/todo_notify.lua
 return {
-  {
-    name = "todo-notify",
-    -- tell lazy.nvim "this is a local plugin, load from this dir"
-    dir = vim.fn.stdpath("config") .. "/lua/todo-notify",
+	{
+		name = "johnconnor-sec/todo-notify.nvim",
 
-    -- load on these filetypes/events/commands:
-    ft = { "markdown" },
-    event = { "BufReadPost", "BufNewFile" },
-    cmd = { "TodoCheck", "TodoSync" },
+		-- load on these filetypes/events/commands:
+		ft = { "markdown" },
+		event = { "BufReadPost", "BufNewFile" },
+		cmd = { "TodoCheck", "TodoSync" },
 
-    -- your defaults, overrideable via lazy setup
-    opts = {
-      markdown_ext = { ".md", ".markdown" },
-      notify_threshold_hours = 24,
-    },
+		-- your defaults, overrideable via lazy setup
+		opts = {
+			markdown_ext = { ".md", ".markdown" },
+			notify_threshold_hours = 24,
+			-- alert_before_days = 3,
+			-- alert_overdue = true,
+			-- check_interval = 1000,
+		},
 
-    -- run after loading the module
-    config = function(_, opts)
-      require("todo-notify").setup(opts)
-    end,
-  },
+		-- run after loading the module
+		config = function(_, opts)
+			require("todo-notify").setup(opts)
+		end,
+	},
 }
